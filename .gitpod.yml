@@ -20,7 +20,7 @@ tasks:
 # 'description' provides additional information about the port.
 ports:
   - name: Jenkins controller
-    port: 8080
+    port: 8081
     protocol: http
     onOpen: open-preview
     description: The Jenkins Controller to use for the tutorials

@@ -47,7 +47,7 @@ services:
     environment:
       - CASC_RELOAD_TOKEN=thisisnotsecure
     ports:
-      - "8080:8080"
+      - "8081:8081"
     volumes:
       - jenkins_home:/var/jenkins_home # Mounts the jenkins_home volume to the /var/jenkins_home path inside the container
       - agent-ssh-dir:/ssh-dir # Mounts the agent-ssh-dir volume to the /app path inside the container

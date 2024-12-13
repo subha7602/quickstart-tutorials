@@ -22,7 +22,7 @@ done
 message=${message%??}
 
 # Print the hostname for debugging purposes
-echo -e "Once you enter \033[42;30mdocker compose --profile _profile_ up\033[0m, Jenkins will be accessible here: \033[36mhttps://8080-$service_url\033[0m"
+echo -e "Once you enter \033[42;30mdocker compose --profile _profile_ up\033[0m, Jenkins will be accessible here: \033[36mhttps://8081-$service_url\033[0m"
 # Print the message
 echo -e "$message"
 # Loop over the targets array
@@ -31,7 +31,7 @@ for target in "${targets[@]}"; do
 done
 
 # Use yq to update the value of the .unclassified.location.url field in the configuration file
-yq eval ".unclassified.location.url = \"https://8080-$service_url/\"" "$config_file" > "$config_file.tmp" && mv "$config_file.tmp" "$config_file"
+yq eval ".unclassified.location.url = \"https://8081-$service_url/\"" "$config_file" > "$config_file.tmp" && mv "$config_file.tmp" "$config_file"
 
 # Use yq to add a line to suppress the Reverse Proxy setup is broken warning
 yq e -i ".jenkins.disabledAdministrativeMonitors = [\"hudson.diagnosis.ReverseProxySetupMonitor\"]" $config_file

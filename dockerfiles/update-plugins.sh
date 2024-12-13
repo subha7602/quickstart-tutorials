@@ -1,5 +1,5 @@
 #!/bin/bash -x
-JENKINS_HOST=admin:admin@localhost:8080
+JENKINS_HOST=admin:admin@localhost:8081
 
 curl -O "http://$JENKINS_HOST/jnlpJars/jenkins-cli.jar"
 UPDATE_LIST=$( java -jar jenkins-cli.jar -s http://$JENKINS_HOST/ list-plugins | grep -e ')$' | awk '{ print $1 }' );
